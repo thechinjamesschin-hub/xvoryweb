@@ -18,6 +18,7 @@
         <a href="#" class="nav-brand">XVORY</a>
         <div class="nav-tabs">
             <button class="nav-tab active" data-tab="dashboard" id="tab-btn-dashboard">Dashboard</button>
+            <button class="nav-tab" data-tab="config" id="tab-btn-config">Config</button>
         </div>
         <div class="nav-status">
             <span class="status-dot"></span>
@@ -104,6 +105,340 @@
             </div>
         </div>
 
+        <!-- Config Tab -->
+        <div class="tab-panel" id="panel-config">
+            <div class="dashboard">
+                <div class="section-header">
+                    <h1 class="section-title">Config</h1>
+                    <p class="section-subtitle">Pulse configuration — copy and paste into your executor.</p>
+                </div>
+
+                <div class="config-container">
+                    <div class="config-header">
+                        <span class="config-filename">pulse_config.lua</span>
+                        <button class="btn-copy" id="copy-config-btn" onclick="copyConfig()">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                            </svg>
+                            Copy
+                        </button>
+                    </div>
+                    <pre class="config-code" id="config-code">getgenv().pulse = {
+    ["Keybind"] = {
+        ["Sient Target"] = "Q";
+        ["Silent"] = "Q";
+        ["TriggerBot"] = "T";
+        ["Cam-locker"] = "C";
+        ["Desync"] = "B";
+        ["Void"] = "H";
+        ["Panic Ground"] = "G";
+        ["ESP"] = "P";
+    };
+
+    ["GUI"] = {
+        ["Enabled"] = true;
+        ["Title"] = "pulse.cc";
+        ["GUI "] = Color3.fromRGB(255, 255, 255);
+        ["Pulse Title"] = Color3.fromRGB(255, 255, 255);
+        ["Target"] = Color3.fromRGB(255, 0, 0);
+    };
+
+    ["Conditions"] = {
+        ["Target Checks"] = {
+            ["Grabbed"] = true;
+            ["Knocked"] = true;
+            ["Self-Knocked"] = false;
+            ["Wall"] = true;
+            ["Forcefield"] = false;
+        };
+        ["Features Checks"] = {
+            ["Grabbed"] = true;
+            ["Knocked"] = true;
+            ["Self-Knocked"] = true;
+            ["Wall"] = true;
+            ["Forcefield"] = true;
+        }
+    };
+
+    ["Combat"] = {
+        ["Conditions"] = {
+            ["Selection"] = {
+                ["Mode"] = {
+                    ["Silent Mode"] = "Select";
+                    ["Cam Mode"] = "Select";
+                    ["Trigger Bot"] = "Select";
+                };
+
+                ["Features-Mode"] = {
+                    ["Silent Mode"] = "2D";
+                    ["Cam Mode"] = "2D";
+                    ["Trigger Mode"] = "2D";
+                };
+
+                ["3D"] = {
+                    ["X"] = math.huge;
+                    ["Y"] = math.huge;
+                    ["Z"] = math.huge;
+                };
+                ["2D"] = {
+                    ["X"] = math.huge;
+                    ["Y"] = math.huge;
+                    ["Z"] = math.huge;
+                }
+            };
+
+            ["Silent Aim"] = {
+                ["Enabled"] = true;
+
+                ["Prediction"] = {
+                    ["Enabled"] = true;
+                    ["X"] = 0;
+                    ["Y"] = 0;
+                    ["Z"] = 0;
+                };
+
+                ["FOV"] = {
+                    ["Enabled"] = true;
+                    ["X"] = 1;
+                    ["Y"] = 1;
+                    ["Z"] = 1;
+                };
+
+                ["Mode Part"] = {
+                    ["Mode"] = "Head";
+                    
+                    ["Closest Point"] = {
+                        ["Edition"] = { false, 50 };
+                    }
+                }
+            };
+
+            ["Cam locker"] = {
+                ["Enabled"] = true;
+                ["Sharpness"] = 0.6;
+                ["Mode"] = "Camera";
+
+                ["Activation"] = {
+                    ["Mode"] = "Toggle";
+                    ["Distance"] = 500;
+                };
+
+                ["Prediction"] = {
+                    ["Enabled"] = true;
+                    ["X"] = 0;
+                    ["Y"] = 0;
+                    ["Z"] = 0;
+                };
+
+                ["FOV"] = {
+                    ["Enabled"] = true;
+                    ["X"] = 1;
+                    ["Y"] = 1;
+                    ["Z"] = 1;
+                };
+
+                ["Hit Mode"] = {
+                    ["Mode"] = "Head";
+
+                    ["Closest Point"] = { false, 50 };
+                }
+            };
+
+            ["Trigger Bot"] = {
+                ["Enabled"] = true;
+                ["Shoot Cooldown"] = 0;
+                ["Activation"] = {
+                    ["Box Mode"] = "FOV"; -- Hitbox, FOV
+                    ["Mode"] = "Toggle"; -- Toggle, Hold 
+                };
+
+                ["Distance"] = {
+                    ["Auto"] = true;
+                    ["Max Distance"] = 500;
+                };
+
+                ["FOV"] = {
+                    ["Enabled"] = true;
+                    ["X"] = 1;
+                    ["Y"] = 1;
+                    ["Z"] = 1;
+                }
+            };
+
+            ["Rage"] = {
+                ["Enabled"] = true;
+                ["ForceHit"] = true;
+
+                ["Rage Features"] = {
+                    ["Desync"] = {
+                        ["Enabled"] = true;
+                    };
+
+                    ["Void"] = {
+                        ["Enabled"] = true;
+                    };
+
+                    ["Bullet TP"] = {
+                        ["Enabled"] = true;
+                        ["Distance"] = math.huge;
+                    };
+
+                    ["Multi-Target"] = {
+                        ["Enabled"] = true;
+                        ["Capacity"] = 2;
+                    };
+
+                    ["Delay Changer"] = {
+                        ["Enabled"] = true;
+                        ["[Double-Barrel SG]"] = {
+                            ["Enabled"] = true;
+                            ["Value"] = 0;
+                        };
+                        ["[TacticalShotgun]"] = {
+                            ["Enabled"] = true;
+                            ["Value"] = 0;
+                        };
+                        ["[Revolver]"] = {
+                            ["Enabled"] = false;
+                            ["Value"] = 0;
+                        }
+                    };
+                    
+                    ["Taps"] = {
+                        ["Enabled"] = true;
+                        ["[Double-Barrel SG]"] = {
+                            ["Enabled"] = true;
+                            ["Value"] = 100;
+                        };
+                        ["[TacticalShotgun]"] = {
+                            ["Enabled"] = true;
+                            ["Value"] = 100;
+                        };
+                        ["[Revolver]"] = {
+                            ["Enabled"] = true;
+                            ["Value"] = 100
+                        }
+                    }
+                }
+            };
+
+            ["Misc"] = {
+                ["Anti Stomp"] = true;
+
+                ["Damage Overrider"] = {
+                    ["Enabled"] = true;
+                    ["Value"] = math.huge;
+                };
+
+                ["Spread Modifications"] = {
+                    ["Enabled"] = true;
+                    ["[Double-Barrel SG]"] = {
+                        ["Enabled"] = true;
+                        ["Value"] = 1;
+                    };
+                    ["[TacticalShotgun]"] = {
+                        ["Enabled"] = true;
+                        ["Value"] = 1;
+                    };
+                    ["[Shotgun]"] = {
+                        ["Enabled"] = true;
+                        ["Value"] = 1;
+                    }
+                };
+ 
+                ["Skin Changers"] = {
+                    ["Enabled"] = true;
+                    ["[Double-Barrel SG]"] = "Galaxy";
+                    ["[Revolver]"] = "Galaxy";
+                    ["[TacticalShotgun]"] = "Galaxy";
+                    ["[Knife]"] = "Golden Age Tanto";
+                };
+
+                ["Avatar Changer"] = {
+                    ["Enabled"] = false;
+                    ["User"] = "Roblox";
+                };
+
+                ["Infinite Range"] = {
+                    ["Das Hood"] = {
+                        ["Enabled"] = true;
+                        ["Wall Bang"] = true;
+                    };
+
+                    ["Yuu Hood"] = {
+                        ["Enabled"] = true;
+                        ["Wall Bang"] = true;
+                    };
+
+                    ["Zee Hood"] = {
+                        ["Enabled"] = true;
+                        ["Wall Bang"] = true;
+                    };
+
+                    ["Da Hood"] = {
+                        ["Range Extender"] = true;
+                    }
+                };
+
+                ["Character"] = {
+                    ["Inventory Setup"] = {
+                        ["Enabled"] = true;
+                        '[Double-Barrel SG]';
+                        '[Revolver]';
+                        '[TacticalShotgun]';
+                        '[Knife]';
+                    };
+
+                    ["WalkSpeed"] = {
+                        ["Enabled"] = true;
+                        ["Activation Mode"] = "Keybind"; -- Always, Keybind
+                        ["Multiplier"] = {
+                            ["Conditions"] = {
+                                ["Walk"] = 90;
+                                ["Shooting"] = 50;
+                                ["Reload"] = 50;
+                            };
+                        };
+                    };
+                    
+                    ["Armor Aura"] = {
+                        ["Enabled"] = true;
+                        ["Distance"] = 500;
+                        ["Mode"] = "High" -- Medium, High;
+                    };
+                };
+
+                ["Hitbox Expander"] = {
+                    ["Enabled"] = true;
+                    ["Value"] = math.huge; 
+                };
+
+                ["ESP"] = {
+                    ["Enabled"] = true;
+                    ["Mode"] = "Display"; -- Username, Display
+
+                    ["Name"] = {
+                        ["Enabled"] = true;
+                        ["Colors"] = {
+                            ["Color"] = Color3.fromRGB(255, 255, 255);
+                            ["Target Color"] = Color3.fromRGB(255, 0, 0);
+                        }
+                    };
+                    
+                    ["Health"] = {
+                        ["Enabled"] = false;
+                        ["Color"] = Color3.fromRGB(255, 0, 0);
+                    }
+                }
+            }
+        }
+    }
+}</pre>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <span class="version-tag">XVORY v1.0.0</span>
@@ -119,6 +454,18 @@
                 if (panel) panel.classList.add('active');
             });
         });
+
+        // Copy config to clipboard
+        function copyConfig() {
+            const code = document.getElementById('config-code').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = document.getElementById('copy-config-btn');
+                btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+                setTimeout(() => {
+                    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy';
+                }, 2000);
+            });
+        }
     </script>
 
 </body>

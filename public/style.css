@@ -385,6 +385,68 @@ body {
 }
 
 /* ============================================
+   Config Panel
+   ============================================ */
+.config-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.config-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255,255,255,0.02);
+}
+
+.config-filename {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+.btn-copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(255,255,255,0.06);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.btn-copy:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border-color: var(--border-hover);
+}
+
+.config-code {
+    padding: 24px;
+    margin: 0;
+    font-family: 'Courier New', Consolas, monospace;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #c0c0c0;
+    overflow-x: auto;
+    white-space: pre;
+    tab-size: 4;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+/* ============================================
    Version tag
    ============================================ */
 .version-tag {
