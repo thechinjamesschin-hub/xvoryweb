@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xvory — Dashboard</title>
+    <meta name="description" content="Xvory Internal — Premium cheat framework dashboard.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background -->
+    <div class="bg-noise"></div>
+    <div class="bg-grid"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="nav-brand">XVORY</a>
+        <div class="nav-tabs">
+            <button class="nav-tab active" data-tab="dashboard" id="tab-btn-dashboard">Dashboard</button>
+        </div>
+        <div class="nav-status">
+            <span class="status-dot"></span>
+            <span>Online</span>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Dashboard Tab -->
+        <div class="tab-panel active" id="panel-dashboard">
+            <div class="dashboard">
+                <div class="section-header">
+                    <h1 class="section-title">Dashboard</h1>
+                    <p class="section-subtitle">Manage your Xvory installation and configuration.</p>
+                </div>
+
+                <div class="cards-grid">
+
+                    <!-- Internal Card -->
+                    <div class="card card-featured" id="card-internal">
+                        <div class="card-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                            </svg>
+                        </div>
+                        <div class="card-label">Internal</div>
+                        <h3 class="card-title">Xvory Internal</h3>
+                        <p class="card-desc">Download the installer or launch Xvory directly if already installed.</p>
+                        <div class="card-actions">
+                            <a href="/downloads/xvory_installer.exe" download class="btn-download" id="download-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                                Download
+                            </a>
+                            <a href="xvory://launch" class="btn-launch" id="launch-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="5 3 19 12 5 21 5 3"/>
+                                </svg>
+                                Launch
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Status Card -->
+                    <div class="card" id="card-status">
+                        <div class="card-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                        <div class="card-label">Status</div>
+                        <h3 class="card-title">Service Status</h3>
+                        <p class="card-desc">Current operational status of the Xvory framework.</p>
+                        <div class="status-badge">
+                            <span class="dot"></span>
+                            Operational
+                        </div>
+                    </div>
+
+                    <!-- Version Card -->
+                    <div class="card" id="card-version">
+                        <div class="card-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="12" y1="8" x2="12" y2="12"/>
+                                <line x1="12" y1="16" x2="12.01" y2="16"/>
+                            </svg>
+                        </div>
+                        <div class="card-label">Build</div>
+                        <h3 class="card-title">Version 1.0.0</h3>
+                        <p class="card-desc">Latest stable release. Thread hijacking + manual mapping injection.</p>
+                        <div class="status-badge">
+                            Latest
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <span class="version-tag">XVORY v1.0.0</span>
+
+    <script>
+        // Tab switching
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+                tab.classList.add('active');
+                const panel = document.getElementById('panel-' + tab.dataset.tab);
+                if (panel) panel.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
