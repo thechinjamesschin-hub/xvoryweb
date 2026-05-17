@@ -446,6 +446,26 @@ body {
     overflow-y: auto;
 }
 
+.config-actions {
+    display: flex;
+    gap: 8px;
+}
+
+textarea.config-edit {
+    width: 100%;
+    min-height: 500px;
+    background: var(--bg-card);
+    color: #c0c0c0;
+    border: none;
+    outline: none;
+    resize: vertical;
+    font-family: 'Courier New', Consolas, monospace;
+    font-size: 12px;
+    line-height: 1.7;
+    padding: 24px;
+    tab-size: 4;
+}
+
 /* ============================================
    Version tag
    ============================================ */
